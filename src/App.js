@@ -14,6 +14,13 @@ function App() {
     const[emailErr, setEmailErr] = useState(false);
     const[passwordErr, setPasswordErr] = useState(false);
 
+    const [popupStyle, showPopup] = useState("hide")
+
+    const popup = () => {
+      showPopup("login-popup")
+      setTimeout(() => showPopup("hide"), 3000)
+    }
+
     const validate = () => {
       if(!validateEmail.test(email)){
         setEmailErr(true)
@@ -49,7 +56,7 @@ function App() {
               onChange={e => setEmail(e.target.value)}
             />
             <span className="focus-input" data-placeholder= "E-mail"></span>
-            {emailErr && <p>Por Favor digite um email valido!</p>}
+            {emailErr && <p className="errinE" >Por Favor digite um email valido!</p>}
           </div>
 
           <div className="wrap-input">
@@ -60,11 +67,18 @@ function App() {
               onChange={e => setPassword(e.target.value)}
             />
             <span className="focus-input" data-placeholder= "Senha"></span>
-            {passwordErr && <p>Por Favor digite uma senha mais segura!</p>}
+            {passwordErr && <p className="errinS" >Por Favor digite uma senha mais segura!</p>}
+          </div>
+
+          <div className={popupStyle}>
+            <h3>Login Failed</h3>
           </div>
 
           <div className="container-login-form-btn">
-            <button name='login' disabled="" type="button" onClick={validate} className="login-form-btn">Login</button>
+            <button name='login' id="logbuton" disabled="" type="button" onClick={()=>{
+              validate();
+              popup();
+            }} className="login-form-btn">Login</button>
           </div>
 
           <div className="text-center">
