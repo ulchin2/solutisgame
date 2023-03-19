@@ -6,11 +6,13 @@
 
 .container{
     width: 100%;
+    max-width: 2000px;
     margin: 0 auto;
     display: flex;
 }
 
 .container-login{
+    max-width: 100%;
     height: 100vh;
     width: 100%;
     min-width: 100vh;
@@ -217,8 +219,9 @@
     line-height: 1.5;
     padding-right: 5px;
     text-decoration: none;
-    position: relative;
+    position: absolute;
     bottom: -2em;
+    right: 20px;
 }
 
 .errinE{
@@ -227,31 +230,54 @@
     line-height: 1.5;
     padding-right: 5px;
     text-decoration: none;
-    position: relative;
-    top: -3em;
-    right: -3;
+    position: absolute;
+    bottom: -25px;
+    right: 35px;
+    display: flex;
 }
 
-.hide {display: none;}
+.hide {
+    position: absolute;
+    transform: scale(0);
+    
+}
+
+.popupStyle{
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 1.5;
+    padding-right: 5px;
+    text-decoration: none;
+    display: flex;
+}
 
 .login-popup {
-    width: 390px;
-    height: 170px;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 390px;
+    max-height: 450px;
+    color: rgb(255, 255, 255);
     background-color: #333;
     line-height: 1.4;
     border-radius: 10px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    position: absolute;
-    top: 21em;
-    left: 605px;
+    box-sizing: border-box;
+    align-items: center;
+    flex-direction: column;
+    transform: scale(1);
+    transition: 1.5s;
+
+    
+
+    padding: 77px 55px 33px;
 
     overflow: hidden;
-    padding: 77px 55px 33px 55px;
-
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
 
 }
+
+
 
 .container-login-form-btn:hover{ transform: scale(1.10);}

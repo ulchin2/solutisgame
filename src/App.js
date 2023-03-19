@@ -42,6 +42,9 @@ function App() {
    <div className="container">
     <div className="container-login">
       <div className="wrap-login">
+      <div id="popupStyle" className={popupStyle}>
+            <h3>Login Failed</h3>
+          </div>
         <form className="login-form">
           <span className="login-form-title">Bem Vindo!</span>
           <span className="login-form-title">
@@ -70,9 +73,7 @@ function App() {
             {passwordErr && <p className="errinS" >Por Favor digite uma senha mais segura!</p>}
           </div>
 
-          <div className={popupStyle}>
-            <h3>Login Failed</h3>
-          </div>
+        
 
           <div className="container-login-form-btn">
             <button name='login' id="logbuton" disabled="" type="button" onClick={()=>{
@@ -80,6 +81,8 @@ function App() {
               popup();
             }} className="login-form-btn">Login</button>
           </div>
+
+          
 
           <div className="text-center">
             <span className="txt1">Não possui conta?</span>
